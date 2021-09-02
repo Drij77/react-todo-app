@@ -118,7 +118,6 @@ function Demo2()
 
     function edit(ind,id1)
     {
-        
         console.log(id1)
         setId(id1);
         initial.map((c,id)=>{
@@ -133,7 +132,7 @@ function Demo2()
             }
             )
     }
-        function drij22(iid)
+        function drij22(iid,id1)
         {
             console.log("medkmekdmk");
             console.log(iid);
@@ -141,7 +140,7 @@ function Demo2()
             // var b=document.getElementById("input2").value;
             var c=document.getElementById("val").value;
            
-            console.log(c)
+            // console.log(c)
             
             initial.map((c,id)=>{
                 if(id==iid)
@@ -159,7 +158,7 @@ function Demo2()
             //  console.log(document.getElementById("input2").value)
 
 
-            axios.put(`http://127.0.0.1:8000/api/todo/${iid}`,
+            axios.put(`http://127.0.0.1:8000/api/todo/${id1}`,
         {
             stat_id:document.getElementById("val").value
         }
@@ -195,7 +194,7 @@ function Demo2()
         <li id="del" > Task name :{c.taskname}</li>
         <li id="del" > Task Details :{c.taskdesciption}</li>
         <li id="del" > Task status :
-        <select id="val" >
+        <select id="val" onChange={()=>drij22(ind,c.id)}>
     
         <option  value="1">In todo</option>
    <option value="2">In progress</option>
@@ -205,7 +204,6 @@ function Demo2()
         </li>
         <button onClick={()=>del(c.id)} >delete</button>
         <button onClick={()=>edit(ind,c.id)}  >Edit</button>  
-        <button onClick={()=>drij22(c.id)}  >Edit stauts</button> 
         </ul>
     )}
     </div> 
