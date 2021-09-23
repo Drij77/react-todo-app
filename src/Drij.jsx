@@ -180,13 +180,14 @@ function Demo2()
    
         <li id="del" > Task name :{c.taskname}</li>
         <li id="del" > Task Details :{c.taskdesciption}</li>
-        <li id="del" > Task status :
-        <select id="val" onChange={()=>drij22(ind,c.id)}>
-    
-        <option  value="1">In todo</option>
-   <option value="2">In progress</option>
-   <option value="3">Complete</option>
-        </select>
+        <li id="del" > Task status : {c.stat_id==1?<span>In todo</span>:
+        (c.stat_id==2?<span>In progress</span>:
+            (c.stat_id==3?<span>Complete</span>:0)
+            
+            )
+        
+    }
+       
         
         </li>
         <button onClick={()=>del(c.id)} >delete</button>
